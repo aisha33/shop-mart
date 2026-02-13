@@ -7,8 +7,7 @@ import toast from 'react-hot-toast'
 import { CartContext } from '../context/CartContext'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
-import { AddToCartAction } from '@/app/(pages)/products/_action/addToCart.action copy'
-
+import { AddToCartAction } from '@/app/(pages)/products/_action/addToCart.action'
 
 export default function AddToCart({ productId }: { productId: string }) {
   const {setCartData} = useContext(CartContext)
