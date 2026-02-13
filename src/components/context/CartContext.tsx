@@ -24,7 +24,7 @@ const [isLoading, setIsLoading]= useState(false)
 
  async function getCart() {
   setIsLoading(true)
-    const response= await fetch("http://localhost:3000/api/get-cart")
+    const response= await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-cart`)
     const data:CartResponse = await response.json()
     setCartData(data)
     console.log(data)
