@@ -1,9 +1,13 @@
+import { useSession } from "next-auth/react"
 import Link from "next/link"
 
 export default function HomePage() {
+
   return (
+     
     <div className="container ">
       <div className=" text-black space-x-6 py-20">
+    
         <div className=" flex flex-col gap-4 justify-center items-center">
           <h1 className="text-4xl font-bold mb-4">Welcome to ShopMart</h1>
           <p className="text-lg mb-6">

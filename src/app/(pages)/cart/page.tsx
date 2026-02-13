@@ -196,7 +196,7 @@ export default function Cart() {
 </section>:<div className='flex items-center min-h-[75vh] justify-center flex-col'>
 <h2 className='text-2xl my-4'>Your Cart Item Is Empty</h2>
 
-<Link href={'/products'} className="flex w-50 items-center justify-center bg-primary rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white ">Go to Products</Link>
+<Link href={'/products'} className="flex w-50 items-center justify-center bg-primary rounded-lg bg-primary-700 px-5 py-2.5 border border-black text-sm font-medium text-black ">Go to Products</Link>
 
  
   

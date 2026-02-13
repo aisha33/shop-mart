@@ -69,11 +69,7 @@ export default function Navbar() {
       <DropdownMenuLabel>My Account</DropdownMenuLabel>
       {session.status =='authenticated'?
       <>
-      <Link href={'/profile'}> 
-     <DropdownMenuItem>
-      Profile
-      </DropdownMenuItem>
-      </Link>
+     
       <Link  href={'/allorders'}> <DropdownMenuItem>My Orders</DropdownMenuItem></Link>
        
        <DropdownMenuItem onClick={()=>signOut({

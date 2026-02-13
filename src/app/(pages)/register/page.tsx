@@ -20,18 +20,18 @@ import { Loader } from "lucide-react"
 
 /* ================= Schema ================= */
 const registerSchema = z.object({
-  name: z.string().min(3, "Name must be at least 3 characters"),
-  email: z.string().email("Invalid email"),
-  password: z
+  Name: z.string().min(3, "Name must be at least 3 characters"),
+  Email: z.string().email("Invalid email"),
+  Password: z
     .string()
     .min(8)
     .regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])/,
       "Weak password"
     ),
-  rePassword: z.string(),
-  phone: z.string().regex(/^01[0-2,5]{1}[0-9]{8}$/, "Invalid phone"),
-}).refine((data) => data.password === data.rePassword, {
+  RePassword: z.string(),
+  Phone: z.string().regex(/^01[0-2,5]{1}[0-9]{8}$/, "Invalid phone"),
+}).refine((data) => data.Password === data.RePassword, {
   message: "Passwords do not match",
   path: ["rePassword"],
 })
@@ -47,11 +47,11 @@ export default function Register() {
   const form = useForm<RegisterForm>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      password: "",
-      rePassword: "",
-      phone: "",
+      Name: "",
+      Email: "",
+      Password: "",
+      RePassword: "",
+      Phone: "",
     },
   })
 
@@ -60,11 +60,11 @@ export default function Register() {
       setIsLoading(true)
 
       await signIn("signup", {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        rePassword: data.rePassword,
-        phone: data.phone,
+        name: data.Name,
+        email: data.Email,
+        password: data.Password,
+        rePassword: data.RePassword,
+        phone: data.Phone,
         redirect: true,
         callbackUrl: "/login",
       })

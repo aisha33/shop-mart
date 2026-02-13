@@ -84,12 +84,14 @@ export const authOptions : AuthOptions={  providers:[
       if (user) {
         token.user = user.user
         token.token = user.token
+         token.userId = user.user._id
       }
       return token
     },
 
     session: ({ session, token }) => {
       session.user = token.user
+       session.userId = token.userId
       return session
     },
   },
