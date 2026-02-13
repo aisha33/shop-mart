@@ -11,7 +11,7 @@ export default async function proxy(req: NextRequest) {
     if (token) {
       return NextResponse.next()
     } else {
-      const redirectURL = new URL('/login', process.env.NEXTAUTH_URL)
+      const redirectURL = new URL('/login', process.env.NEXT_PUBLIC_API_URL)
       return NextResponse.redirect(redirectURL)
     }
   }
@@ -20,7 +20,7 @@ export default async function proxy(req: NextRequest) {
     if (!token) {
       return NextResponse.next()
     } else {
-      const redirectURL = new URL('/', process.env.NEXTAUTH_URL)
+      const redirectURL = new URL('/', process.env.NEXT_PUBLIC_API_URL)
       return NextResponse.redirect(redirectURL)
     }
    
