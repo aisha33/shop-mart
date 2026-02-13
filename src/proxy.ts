@@ -1,7 +1,7 @@
 import { getToken } from "next-auth/jwt"
 import { NextRequest, NextResponse } from "next/server"
 
-const protectedPages = ['/cart', '/profile']
+const protectedPages = ['/cart']
 const authPages = ['/login', '/register']
 
 export default async function proxy(req: NextRequest) {
@@ -11,7 +11,7 @@ export default async function proxy(req: NextRequest) {
     if (token) {
       return NextResponse.next()
     } else {
-      const redirectURL = new URL('/login', process.env.NEXT_URL)
+      const redirectURL = new URL('/login', process.env.NEXTAUTH_URL)
       return NextResponse.redirect(redirectURL)
     }
   }
@@ -20,7 +20,7 @@ export default async function proxy(req: NextRequest) {
     if (!token) {
       return NextResponse.next()
     } else {
-      const redirectURL = new URL('/', process.env.NEXT_URL)
+      const redirectURL = new URL('/', process.env.NEXTAUTH_URL)
       return NextResponse.redirect(redirectURL)
     }
    
